@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Father's Day</title>
+<style>
+body {
+  margin: 0;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  background: #ff7675;
+  background: linear-gradient(45deg, #ff7675, #fdcb6e);
+  overflow: auto;
+  padding: 50px 20px;
+  position: relative;
+}
+
+/* Falling hearts */
+.heart {
+  position: fixed;
+  bottom: -50px;
+  font-size: 2rem;
+  color: #d63031;
+  animation: floatHearts 5s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0);
+  opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+  opacity: 0;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff5cc;
+  border-radius: 30px;
+  box-shadow: 0 20px 20px rgb(0 0 0 / 0.5);
+  text-align: center;
+  color: #5d4037;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.container:hover {
+  transform: translateY(-10px);
+}
+
+.container h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #d63031;
+  font-family:'Georgia', serif;
+  text-shadow: 2px 2px #fff5cc;
+}
+
+.container p {
+  font-size: 1.5rem;
+  color: #6d4c41;
+  margin-bottom: 30px;
+}
+
+/* Typing text */
+.typing {
+  border-right: 4px solid #d63031;
+  font-size: 1.5rem;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 10px solid #d63031;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.7);
+  margin-bottom: 30px;
+}
+
+.slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-20%) scale(1);
+  transition: transform 0.5s ease-in-out;
+ opacity: 0;
+  animation: slide 12s infinite;
+}
+
+.slideshow img:nth-child(1) {
+  animation-delay: 0s;
+}
+.slideshow img:nth-child(2) {
+  animation-delay: 4s;
+}
+.slideshow img:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes slide {
+  0%, 20% {
+  opacity: 1;
+    transform: scale(1);
+  }
+  25%, 45% {
+  opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Pulse heart */
+.heart-pulse {
+  color: #d63031;
+  font-size: 3rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Father's Day</h1>
+    <div class="typing"><p>Thank you for always loving me, guiding me, and cheering me on.<br> I'm proud to be your child and appreciate everything you've done<br> for me.</p></div>
+  </div>
+    <div class="heart-pulse">❤️</div>
+
+    <div class="slideshow">
+      <img src="DAD.JPG" alt="Dad">
+      <img src="dada.jpeg" alt="Dad">
+      <img src="DODO.jpeg" alt="Dad">
+    </div>
+
+  </div>
+
+<script>
+  // Generate falling hearts
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.textContent = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+
+    document.body.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
